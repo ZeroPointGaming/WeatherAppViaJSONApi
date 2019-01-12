@@ -9,11 +9,11 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("WeatherAppViaJSONApi")>
-<Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyDescription("Weather App")>
+<Assembly: AssemblyCompany("Zero Point Gaming")>
 <Assembly: AssemblyProduct("WeatherAppViaJSONApi")>
 <Assembly: AssemblyCopyright("Copyright ©  2019")>
-<Assembly: AssemblyTrademark("")>
+<Assembly: AssemblyTrademark("ZPG")>
 
 <Assembly: ComVisible(False)>
 
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("1.0.0.0")>
-<Assembly: AssemblyFileVersion("1.0.0.0")>
+<Assembly: AssemblyVersion("1.0.1.0")>
+<Assembly: AssemblyFileVersion("1.0.1")>

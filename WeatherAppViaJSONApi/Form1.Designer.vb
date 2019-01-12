@@ -166,8 +166,8 @@ Partial Class Form1
         Me.PictureBox1.Size = New System.Drawing.Size(200, 200)
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.PictureBox1, "Use this to find the wind direction using the wind heading degree value in the ra" &
-        "w weather data list.")
+        Me.ToolTip1.SetToolTip(Me.PictureBox1, "Use this to find the wind direction using the wind direction degree value in the " &
+        "raw weather data list.")
         '
         'Label7
         '
