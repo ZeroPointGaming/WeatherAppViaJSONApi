@@ -44,7 +44,7 @@ Public Class Form1
     End Sub
 
     'generate your own free api key at openweathermap.org to use with your own project.
-    Public api_key As String = "&APPID=a756bb2cdd548defd8539e8e36c1d2df"
+    Public api_key As String = "&APPID=YOURAPIKEY"
     Public api_measurement As String = "imperial"
 
     Public weather_url As String = "http://api.openweathermap.org/data/2.5/weather?lat=" + My.Settings.Latitude + "&lon=" + My.Settings.Longitude + "&APPID=a756bb2cdd548defd8539e8e36c1d2df&units=imperial"
