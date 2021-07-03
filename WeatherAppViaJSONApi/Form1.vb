@@ -47,7 +47,7 @@ Public Class Form1
     Public api_key As String = "&APPID=YOURAPIKEY"
     Public api_measurement As String = "imperial"
 
-    Public weather_url As String = "http://api.openweathermap.org/data/2.5/weather?lat=" + My.Settings.Latitude + "&lon=" + My.Settings.Longitude + "&APPID=a756bb2cdd548defd8539e8e36c1d2df&units=imperial"
+    Public weather_url As String = $"http://api.openweathermap.org/data/2.5/weather?lat={My.Settings.Latitude}&lon={My.Settings.Longitude}&APPID=a756bb2cdd548defd8539e8e36c1d2df&units=imperial"
 
     'Refresh Location Data
     Public Sub RefreshLocationData()
@@ -68,27 +68,27 @@ Public Class Form1
         ipdata_object = JavaScriptSerialization.Deserialize(Raw, ipdata_object.GetType)
 
         ListBox2.Items.Add("----- Coordinates -----")
-        ListBox2.Items.Add("Latitude: " + ipdata_object.lat)
-        ListBox2.Items.Add("Longitude: " + ipdata_object.lon)
+        ListBox2.Items.Add($"Latitude: {ipdata_object.lat}")
+        ListBox2.Items.Add($"Longitude: {ipdata_object.lon}")
         ListBox2.Items.Add("")
 
         ListBox2.Items.Add("----- Location -----")
-        ListBox2.Items.Add("Country: " + ipdata_object.country)
-        ListBox2.Items.Add("City: " + ipdata_object.city)
-        ListBox2.Items.Add("Zip Code: " + ipdata_object.zip)
+        ListBox2.Items.Add($"Country: {ipdata_object.country}")
+        ListBox2.Items.Add($"City: {ipdata_object.city}")
+        ListBox2.Items.Add($"Zip Code: {ipdata_object.zip}")
         ListBox2.Items.Add("")
 
         ListBox2.Items.Add("----- User Data -----")
-        ListBox2.Items.Add("ISP: " + ipdata_object.isp)
-        ListBox2.Items.Add("ORG: " + ipdata_object.org)
-        ListBox2.Items.Add("Timezone: " + ipdata_object.timezone)
-        ListBox2.Items.Add("IP: " + ipdata_object.query)
+        ListBox2.Items.Add($"ISP: {ipdata_object.isp}")
+        ListBox2.Items.Add($"ORG: {ipdata_object.org}")
+        ListBox2.Items.Add($"Timezone: {ipdata_object.timezone}")
+        ListBox2.Items.Add($"IP: {ipdata_object.query}")
         ListBox2.Items.Add("")
 
         ListBox2.Items.Add("----- Region Data -----")
-        ListBox2.Items.Add("Country Code: " + ipdata_object.countryCode)
-        ListBox2.Items.Add("Region Name: " + ipdata_object.regionName)
-        ListBox2.Items.Add("Region: " + ipdata_object.region)
+        ListBox2.Items.Add($"Country Code: {ipdata_object.countryCode}")
+        ListBox2.Items.Add($"Region Name: {ipdata_object.regionName}")
+        ListBox2.Items.Add($"Region: {ipdata_object.region}")
     End Sub
 
     'collect data 
@@ -112,32 +112,32 @@ Public Class Form1
             weatherdata = JavaScriptSerialization.Deserialize(Raw, weatherdata.GetType)
 
             'populate the labels with data
-            Label1.Text = "Weather: " + weatherdata.weather(0).main
-            Label4.Text = "Geographic Coordinates: " + lat + " , " + log
-            Label5.Text = "Tempurature: " + weatherdata.main.temp.ToString() + "°"
-            Label6.Text = "Tempurature Forecast: " + "High " + weatherdata.main.temp_max.ToString() + "°" + " / " + "Low " + weatherdata.main.temp_min.ToString() + "°"
+            Label1.Text = $"Weather: {weatherdata.weather(0).main}"
+            Label4.Text = $"Geographic Coordinates: {lat} , {log}"
+            Label5.Text = $"Tempurature: {weatherdata.main.temp}°"
+            Label6.Text = $"Tempurature Forecast: High {weatherdata.main.temp_max}° / Low {weatherdata.main.temp_min}°"
 
             'set application icon
             Me.Icon = DirectCast(My.Resources.ResourceManager.GetObject("_" + weatherdata.weather(0).icon.ToString()), Icon)
 
             'Populate raw weather data
             ListBox1.Items.Add("----- Weather Data -----")
-            ListBox1.Items.Add("Forecast: " + weatherdata.weather(0).main)
-            ListBox1.Items.Add("Tempurature: " + weatherdata.main.temp + "° F")
-            ListBox1.Items.Add("Wind Speed: " + weatherdata.wind.speed + " mph")
-            ListBox1.Items.Add("Wind Direction: " + weatherdata.wind.deg + "°")
+            ListBox1.Items.Add($"Forecast: {weatherdata.weather(0).main}")
+            ListBox1.Items.Add($"Tempurature: {weatherdata.main.temp}° F")
+            ListBox1.Items.Add($"Wind Speed: {weatherdata.wind.speed} mph")
+            ListBox1.Items.Add($"Wind Direction: {weatherdata.wind.deg}°")
             ListBox1.Items.Add("")
 
             ListBox1.Items.Add("----- Systemic Data -----")
-            ListBox1.Items.Add("Weather ID: " + weatherdata.weather(0).id)
-            ListBox1.Items.Add("Weather Icon: " + weatherdata.weather(0).icon)
-            ListBox1.Items.Add("Country Code: " + weatherdata.sys.country)
-            ListBox1.Items.Add("Sunrise Data:  " + weatherdata.sys.sunrise)
-            ListBox1.Items.Add("Sunset Data: " + weatherdata.sys.sunset)
-            ListBox1.Items.Add("Response ID: " + weatherdata.id)
+            ListBox1.Items.Add($"Weather ID: {weatherdata.weather(0).id}")
+            ListBox1.Items.Add($"Weather Icon: {weatherdata.weather(0).icon}")
+            ListBox1.Items.Add($"Country Code: {weatherdata.sys.country}")
+            ListBox1.Items.Add($"Sunrise Data:  {weatherdata.sys.sunrise}")
+            ListBox1.Items.Add($"Sunset Data: {weatherdata.sys.sunset}")
+            ListBox1.Items.Add($"Response ID: {weatherdata.id}")
 
         Catch ex As Exception
-            MessageBox.Show(ex.ToString())
+            MessageBox.Show($"{ex}")
         End Try
     End Sub
 End Class
